@@ -11,3 +11,4 @@
 - https://github.com/elm
 - https://github.com/ellie-app/ellie
 - https://github.com/rtfeldman/elm-spa-example
+- https://github.com/sporto/awesome-elm
