@@ -1,24 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ContenedorCodigo from './Componentes/ContenedorCodigo';
+import ContenedorDeStatement from './Componentes/ContenedorDeStatement';
+import ContenedorMaquinaAbstracta from './Componentes/ContenedorMaquinaAbstracta';
+import {Col, Row, Container} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Aguante <code>Elm!</code> Principio de App React.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Row className="tituloPrincipal">
+        <h1 >KERNEL</h1>
+      </Row>
+      <Row>
+        <Col>
+          <ContenedorDeStatement />
+        </Col>
+       
+        <Col>
+          <ContenedorCodigo />
+        </Col>
+        <Col>
+          <ContenedorMaquinaAbstracta />
+        </Col>
+      </Row>
+
+
     </div>
   );
 }

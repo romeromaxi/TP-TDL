@@ -1,0 +1,35 @@
+
+
+.div-Contenedor-Statement  {
+    text-align: center;
+    justify-content: center;
+    height: 400px !important;
+    background-color: white;
+    border-radius: 2em 2em 2em 2em;
+    margin-top: 50px;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    border: 2px solid #ccc !important;
+  }
+
+.linea{
+  height: 1px;
+  background-color: #ccc;
+}
+
+.lista-statements{
+  justify-content: center;
+}
+
+.botonesStatement {
+  width: 100%;
+  background-color: #ccc;
+  margin: 10px;
+}
+
+  .titulo  {
+
+    text-align: center;
+    justify-content: center;
+    
+  }
