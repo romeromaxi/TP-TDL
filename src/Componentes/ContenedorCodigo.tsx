@@ -8,7 +8,7 @@ import {Col, Row, Container,Button} from 'reactstrap';
 class ContenedorCodigo extends React.Component {
     render(){
         return (
-                <div className="div-Contenedor-Statement">
+                <div className="div-Contenedor">
                     <Row className="titulo">
                         <h1 >
                             Codigo
