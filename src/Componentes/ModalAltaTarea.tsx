@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+import Tarea from '../Interfaces/Tarea';
+
 const ModalExample = (props: any) => {
   const {
     buttonLabel,
@@ -8,7 +10,6 @@ const ModalExample = (props: any) => {
   } = props;
 
   const [estaVisible, setEstaVisible] = useState(false);
-  const [colorBackground, setColorBackground] = useState('black');
 
   const toggle = () => setEstaVisible(!estaVisible);
 
