@@ -12,7 +12,7 @@ interface iDia{
 class ComponenteSemana extends React.Component {   
     
     
-    nombreDias = ['Lunes', 'Martes','Miercoles','Jueves','Viernes','Sabado','Domingo'];
+    nombreDias = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
     
     render(){
         

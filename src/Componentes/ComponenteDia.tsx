@@ -1,19 +1,22 @@
-import React,{ MouseEvent}  from 'react';
 import '../App.css';
+
+import React,{ MouseEvent}  from 'react';
 import { Row, Col, Button } from 'reactstrap';
+
+import ITarea from '../Interfaces/Tarea';
+import ModalAltaTarea from './ModalAltaTarea';
 
 interface IProps{
     id: number;
     dia: string;    
 };
 
-interface Istate{
+interface IState{
     nuevaTarea : string;
-    listaTareas: string[];
-    
+    listaTareas: Array<ITarea>;
 };
 
-class ComponenteDia extends React.Component<IProps, Istate> {
+class ComponenteDia extends React.Component<IProps, IState> {
     
     constructor(props: IProps){
         super(props);
@@ -22,25 +25,12 @@ class ComponenteDia extends React.Component<IProps, Istate> {
             nuevaTarea: 'hola',
             listaTareas: []
         };
-        this.handleClick = this.handleClick.bind(this);
-
         
+        this.agregarNuevaTarea = this.agregarNuevaTarea.bind(this);
     }
 
-    handleClick(event: MouseEvent){
-        
-        this.state.listaTareas.push(this.state.nuevaTarea)
-        this.setState({
-
-        });
-     
-    }
- 
-
-    agregarNuevaTarea(NombereNuevaTarea:string){
-        this.setState({
-            nuevaTarea: NombereNuevaTarea,
-        });
+    agregarNuevaTarea(unaTareaNueva: ITarea){
+        this.state.listaTareas.push(unaTareaNueva);
     }
 
     render(){      
@@ -49,10 +39,9 @@ class ComponenteDia extends React.Component<IProps, Istate> {
 
         return(
             <div className="div-DiaDeLaSemana">
-                <Button onClick={this.handleClick}>Prueba Agregar</Button>
-                <input type="text" onChange={e =>
-                    this.agregarNuevaTarea(e.target.value)
-                }></input>
+
+                <ModalAltaTarea onGuardarTarea={this.agregarNuevaTarea} labelBoton="Nueva Tarea"></ModalAltaTarea>
+                
                 <Row className="tituloDiaDeLaSemana">
                     <h3>{this.props.dia}</h3>                               
                 </Row>
