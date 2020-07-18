@@ -10,7 +10,7 @@ import ModalAltaTarea from './Componentes/ModalAltaTarea';
 function App() {
   return (
     <div className="App">
-      <ModalAltaTarea buttonLabel="Esa"></ModalAltaTarea>
+      <ModalAltaTarea buttonLabel="Boton para agregar tarea"></ModalAltaTarea>
     </div>
   );
 }
