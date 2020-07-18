@@ -21,10 +21,10 @@ class ComponenteSemana extends React.Component {
     
                 <Row >
                     {
-                        this.nombreDias.map((unDia:string)=>{
+                        this.nombreDias.map((unDia:string, i:number)=>{
                             return (
                             <Col>
-                                <ComponenteDia dia={unDia}></ComponenteDia>
+                                <ComponenteDia dia={unDia} id={i}></ComponenteDia>
                             </Col>
                             )
                         })
