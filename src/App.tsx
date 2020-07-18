@@ -6,11 +6,18 @@ import logo from './logo.svg';
 import {Col, Row, Container} from 'reactstrap';
 
 import ModalAltaTarea from './Componentes/ModalAltaTarea';
+import ComponenteSemana from './Componentes/ComponenteSemana';
 
 function App() {
   return (
     <div className="App">
-      <ModalAltaTarea buttonLabel="Boton para agregar tarea"></ModalAltaTarea>
+      <Row>
+        <ModalAltaTarea buttonLabel="Boton para agregar tarea"></ModalAltaTarea>
+      </Row>
+        <ComponenteSemana></ComponenteSemana>
+      <Row>
+
+      </Row>
     </div>
   );
 }

@@ -11,3 +11,34 @@
 .contenedor_maquinaAbstracta{
     justify-content: center;
 }
+
+.div-DiaDeLaSemana{
+    text-align: center;
+    justify-content: center;
+    height: 500px;
+    margin: 10px;
+}
+
+.tituloDiaDeLaSemana{
+    border: 1px solid #ccc;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.tituloDiaDeLaSemana > h3{
+    font: 30px Arial, sans-serif;
+    
+}
+
+
+.tareasDelDia{
+    border: 1px solid #ccc;
+    height: 500px;
+    background-color: white;
+}
+
+.div-ComponenteSemana{
+    margin: 20px;
+}
+
