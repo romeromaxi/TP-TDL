@@ -5,6 +5,7 @@ import { Row, Col, Button } from 'reactstrap';
 
 import ITarea from '../Interfaces/Tarea';
 import ModalAltaTarea from './ModalAltaTarea';
+import ComponenteTarea from './ComponenteTarea';
 
 interface IProps{
     id: number;
@@ -30,7 +31,11 @@ class ComponenteDia extends React.Component<IProps, IState> {
     }
 
     agregarNuevaTarea(unaTareaNueva: ITarea){
+
         this.state.listaTareas.push(unaTareaNueva);
+        this.setState({
+
+        });
     }
 
     render(){      
@@ -45,11 +50,13 @@ class ComponenteDia extends React.Component<IProps, IState> {
                 <Row className="tituloDiaDeLaSemana">
                     <h3>{this.props.dia}</h3>                               
                 </Row>
-                <Row className="tareasDelDia">
+                <Row className="tareasDelDia">                    
                     <ul>
                         {listaTareas.map(tarea =>
-                            <li>{tarea}</li>)}
+                            <li>{tarea.nombre}</li>
+                        )}
                     </ul>
+                                        
                 </Row>
                              
             </div>
