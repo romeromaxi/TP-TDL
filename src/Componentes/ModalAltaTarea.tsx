@@ -63,6 +63,8 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
 
   guardarTarea() {
     this.props.onGuardarTarea(this.state.unaTarea);
+
+    this.cambiarVisibilidad();
   }
   
   render(){
