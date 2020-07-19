@@ -23,8 +23,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
         unaTarea: { 
           nombre: "",
           descripcion: "",
-          hora: 0,
-
+          hora: "",
         }
     };
 
@@ -38,27 +37,22 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
     })
   }
 
-  //Esto se debe poder simplificar.
-  cambiarTituloTarea(titulo: string){
-    this.setState({
-      unaTarea: {
-          nombre: titulo,
-          descripcion: this.state.unaTarea.descripcion,
-          hora: this.state.unaTarea.hora,
-          
-      }
-    })
+  cambiarNombreTarea(nombre: string){
+
+    this.state.unaTarea.nombre = nombre;
+    this.setState({});
   }
 
   cambiarDescripcionTarea(descripcion: string){
-    this.setState({
-      unaTarea: {
-          nombre: this.state.unaTarea.nombre,
-          descripcion: descripcion,
-          hora: this.state.unaTarea.hora, 
 
-      }
-    })
+    this.state.unaTarea.descripcion = descripcion;
+    this.setState({});
+  }
+
+  cambiarHoraTarea(hora: string){
+
+    this.state.unaTarea.hora = hora;
+    this.setState({});
   }
 
   guardarTarea() {
@@ -81,11 +75,11 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
             <ModalBody>
               <FormGroup>
                   <Label for="txtTituloTarea">Título</Label>
-                  <Input id="txtTituloTarea" type="text" onChange={e => this.cambiarTituloTarea(e.target.value)} />
+                  <Input id="txtTituloTarea" type="text" onChange={e => this.cambiarNombreTarea(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
                   <Label for="txtHoraTarea">Hora</Label>
-                  <Input id="txtHoraTarea" type="time" />
+                  <Input id="txtHoraTarea" type="time" onChange={e => this.cambiarHoraTarea(e.target.value)}/>
                 </FormGroup>
                 <FormGroup>
                   <Label for="txtDescripcionTarea">Descripción</Label>

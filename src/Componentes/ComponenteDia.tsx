@@ -12,12 +12,11 @@ interface IProps{
     dia: string;    
 };
 
-interface IState{
-    nuevaTarea : string;
+interface IState {
     listaTareas: Array<ITarea>;
 };
 
-interface IVisbilidad{
+interface IVisbilidad {
     visibilidad: boolean;
 }
 
@@ -28,7 +27,6 @@ class ComponenteDia extends React.Component<IProps, IState> {
         super(props);
          
         this.state = {
-            nuevaTarea: '',
             listaTareas: []
         };
         
@@ -38,13 +36,12 @@ class ComponenteDia extends React.Component<IProps, IState> {
     agregarNuevaTarea(unaTareaNueva: ITarea){
 
         this.state.listaTareas.push(unaTareaNueva);
-        this.setState({
-
-        });
+        
+        this.setState({});
     }
 
     render(){      
-        let {listaTareas, nuevaTarea} = this.state;
+        let {listaTareas} = this.state;
   
 
         return(
@@ -55,17 +52,15 @@ class ComponenteDia extends React.Component<IProps, IState> {
                 <Row className="tituloDiaDeLaSemana">
                     <h3>{this.props.dia}</h3>                               
                 </Row>
-                <Row className="tareasDelDia">                    
-                    
-                        <Col>
-                            {listaTareas.map(tarea =>
-                                <ComponenteTarea nombre={tarea.nombre} descripcion={tarea.descripcion} hora={tarea.hora}  ></ComponenteTarea>
+
+                <Row className="tareasDelDia">
+                    <Col>
+                        {listaTareas.map(tarea =>
+                            <ComponenteTarea nombre={tarea.nombre} descripcion={tarea.descripcion} hora={tarea.hora}></ComponenteTarea>
                                 
-                            )}
+                        )}
                     
-                        </Col>
-                        
-                                        
+                    </Col>             
                 </Row>
                              
             </div>

@@ -1,7 +1,7 @@
 interface Tarea {
     nombre: string
     descripcion: string
-    hora: number
+    hora: string
  
 }
 
