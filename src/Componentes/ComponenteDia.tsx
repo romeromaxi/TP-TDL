@@ -34,6 +34,12 @@ class ComponenteDia extends React.Component<IProps, IState> {
         this.agregarNuevaTarea = this.agregarNuevaTarea.bind(this);
     }
 
+    actualizarIds(){
+        this.state.listaTareas.forEach((unaTarea, index) => {
+            unaTarea.id = index;
+        })
+    }
+
     borrarTarea(idTarea: number){
         this.state.listaTareas.forEach((unaTarea, index) => {
 
@@ -41,6 +47,7 @@ class ComponenteDia extends React.Component<IProps, IState> {
                 this.state.listaTareas.splice(index, 1);
         })
 
+        this.actualizarIds();
         this.setState({});
     }
 
