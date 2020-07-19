@@ -3,13 +3,18 @@ import { Row, Col, Button,Container } from 'reactstrap';
 import ITarea from '../Interfaces/Tarea';
 import '../App.css';
 
+interface IProps{
+    unaTarea: ITarea;
+    onBorrarTarea: (idTarea: number) => void;   
+};
+
 interface IVisibilidad{
     visibilidad: boolean;
 }
 
-class ComponenteTarea extends React.Component<ITarea,IVisibilidad> {
+class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
 
-    constructor(props: ITarea){
+    constructor(props: IProps){
         super(props);
 
          this.state ={
@@ -19,10 +24,8 @@ class ComponenteTarea extends React.Component<ITarea,IVisibilidad> {
         this.borrarTarea = this.borrarTarea.bind(this);
     };
 
-    borrarTarea(){
-        this.setState({
-            visibilidad:false
-        })
+    borrarTarea() {
+        this.props.onBorrarTarea(this.props.unaTarea.id);
     };
 
     render(){
@@ -33,15 +36,15 @@ class ComponenteTarea extends React.Component<ITarea,IVisibilidad> {
           
                     <Row >
                         <Col>
-                            {<h5>{this.props.nombre}</h5>}                            
+                            {<h5>{this.props.unaTarea.nombre}</h5>}                            
                         </Col>
                         <Button close onClick={this.borrarTarea}></Button>
                     </Row>
                     <Row style={{justifyContent:"center"}}>
-                        <p>Hora: {this.props.hora}</p>
+                        <p>Hora: {this.props.unaTarea.hora}</p>
                     </Row>
                     <Row style={{justifyContent:"center"}}>
-                        <p>Descripcion: {this.props.descripcion}</p>
+                        <p>Descripcion: {this.props.unaTarea.descripcion}</p>
                     </Row>                    
                 </Container>
             </div>

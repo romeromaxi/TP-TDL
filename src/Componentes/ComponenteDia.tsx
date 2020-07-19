@@ -30,10 +30,22 @@ class ComponenteDia extends React.Component<IProps, IState> {
             listaTareas: []
         };
         
+        this.borrarTarea = this.borrarTarea.bind(this);
         this.agregarNuevaTarea = this.agregarNuevaTarea.bind(this);
     }
 
+    borrarTarea(idTarea: number){
+        this.state.listaTareas.forEach((unaTarea, index) => {
+
+            if(unaTarea.id == idTarea)
+                this.state.listaTareas.splice(index, 1);
+        })
+
+        this.setState({});
+    }
+
     agregarNuevaTarea(unaTareaNueva: ITarea){
+        unaTareaNueva.id = this.state.listaTareas.length + 1;
 
         this.state.listaTareas.push(unaTareaNueva);
         
@@ -41,7 +53,7 @@ class ComponenteDia extends React.Component<IProps, IState> {
     }
 
     render(){      
-        let {listaTareas} = this.state;
+        let { listaTareas } = this.state;
   
 
         return(
@@ -56,10 +68,9 @@ class ComponenteDia extends React.Component<IProps, IState> {
                 <Row className="tareasDelDia">
                     <Col>
                         {listaTareas.map(tarea =>
-                            <ComponenteTarea nombre={tarea.nombre} descripcion={tarea.descripcion} hora={tarea.hora}></ComponenteTarea>
-                                
+                            <ComponenteTarea unaTarea={tarea}
+                                             onBorrarTarea={this.borrarTarea}></ComponenteTarea>       
                         )}
-                    
                     </Col>             
                 </Row>
                              

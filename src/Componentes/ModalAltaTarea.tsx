@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
+import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Input, Col } from 'reactstrap';
 
 import ITarea from '../Interfaces/Tarea';
 
@@ -20,7 +20,8 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
      
     this.state = {
         estaVisible: false,
-        unaTarea: { 
+        unaTarea: {
+          id: 0,
           nombre: "",
           descripcion: "",
           hora: "",
@@ -37,8 +38,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
     })
   }
 
-  cambiarNombreTarea(nombre: string){
-
+  cambiarNombreTarea(nombre: string) {
     this.state.unaTarea.nombre = nombre;
     this.setState({});
   }
