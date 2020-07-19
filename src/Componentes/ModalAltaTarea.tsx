@@ -23,7 +23,8 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
         unaTarea: { 
           nombre: "",
           descripcion: "",
-          hora: 0
+          hora: 0,
+
         }
     };
 
@@ -43,7 +44,8 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
       unaTarea: {
           nombre: titulo,
           descripcion: this.state.unaTarea.descripcion,
-          hora: this.state.unaTarea.hora 
+          hora: this.state.unaTarea.hora,
+          
       }
     })
   }
@@ -53,7 +55,8 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
       unaTarea: {
           nombre: this.state.unaTarea.nombre,
           descripcion: descripcion,
-          hora: this.state.unaTarea.hora 
+          hora: this.state.unaTarea.hora, 
+
       }
     })
   }

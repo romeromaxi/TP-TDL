@@ -42,3 +42,11 @@
     margin: 20px;
 }
 
+.cont-tarea{
+    background-color: lightblue ;
+    justify-content: center;
+    border: 1px solid lightblue ;
+    border-radius: 10%;
+    margin: 10px;
+}
+

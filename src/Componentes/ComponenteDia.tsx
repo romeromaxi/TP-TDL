@@ -17,13 +17,18 @@ interface IState{
     listaTareas: Array<ITarea>;
 };
 
+interface IVisbilidad{
+    visibilidad: boolean;
+}
+
+
 class ComponenteDia extends React.Component<IProps, IState> {
     
     constructor(props: IProps){
         super(props);
          
         this.state = {
-            nuevaTarea: 'hola',
+            nuevaTarea: '',
             listaTareas: []
         };
         
@@ -51,11 +56,15 @@ class ComponenteDia extends React.Component<IProps, IState> {
                     <h3>{this.props.dia}</h3>                               
                 </Row>
                 <Row className="tareasDelDia">                    
-                    <ul>
-                        {listaTareas.map(tarea =>
-                            <li>{tarea.nombre}</li>
-                        )}
-                    </ul>
+                    
+                        <Col>
+                            {listaTareas.map(tarea =>
+                                <ComponenteTarea nombre={tarea.nombre} descripcion={tarea.descripcion} hora={tarea.hora}  ></ComponenteTarea>
+                                
+                            )}
+                    
+                        </Col>
+                        
                                         
                 </Row>
                              
