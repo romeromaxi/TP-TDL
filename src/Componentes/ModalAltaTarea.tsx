@@ -13,6 +13,21 @@ interface IState{
   unaTarea: ITarea;
 };
 
+class Tarea implements ITarea
+{
+    id: number
+    nombre: string
+    descripcion: string
+    hora: string
+
+    constructor(){
+        this.id = 0;
+        this.nombre = "";
+        this.descripcion = "";
+        this.hora = "";
+    }
+}
+
 class ModalAltaTarea extends React.Component<IProps, IState> {
 
   constructor(props: IProps){
@@ -20,12 +35,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
      
     this.state = {
         estaVisible: false,
-        unaTarea: {
-          id: 0,
-          nombre: "",
-          descripcion: "",
-          hora: "",
-        }
+        unaTarea: new Tarea()
     };
 
     this.guardarTarea = this.guardarTarea.bind(this);
@@ -56,7 +66,15 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   }
 
   guardarTarea() {
-    this.props.onGuardarTarea(this.state.unaTarea);
+    
+    //Esto lo soluciona.
+    var unaTarea = new Tarea();
+
+    unaTarea.nombre = this.state.unaTarea.nombre;
+    unaTarea.descripcion = this.state.unaTarea.descripcion;
+    unaTarea.hora = this.state.unaTarea.hora;
+
+    this.props.onGuardarTarea(unaTarea);
 
     this.cambiarVisibilidad();
   }
