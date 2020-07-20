@@ -9,7 +9,9 @@ import ComponenteTarea from './ComponenteTarea';
 
 interface IProps{
     id: number;
-    dia: string;    
+    dia: string;
+    listaTareas: Array<ITarea>;
+    onBorrarTarea: (idTarea: number) => void; 
 };
 
 interface IState {
@@ -27,32 +29,40 @@ class ComponenteDia extends React.Component<IProps, IState> {
         super(props);
          
         this.state = {
-            listaTareas: []
+            listaTareas: this.props.listaTareas
         };
-        
+
         this.borrarTarea = this.borrarTarea.bind(this);
         this.agregarNuevaTarea = this.agregarNuevaTarea.bind(this);
+        
     }
 
-    actualizarIds(){
-        this.state.listaTareas.forEach((unaTarea, index) => {
-            unaTarea.id = index;
-        })
+    // actualizarIds(){
+    //     this.state = {
+    //         listaTareas: this.props.listaTareas
+    //     };
+
+    //     // this.state.listaTareas.forEach((unaTarea, index) => {
+    //     //     unaTarea.id = index;
+    //     // })
+
+    // }
+
+    setLista(){
+        this.state = {
+            listaTareas: this.props.listaTareas
+        };
     }
 
-    borrarTarea(idTarea: number){
-        this.state.listaTareas.forEach((unaTarea, index) => {
+    borrarTarea(idTarea: number) {
+        console.log(idTarea);
+        this.props.onBorrarTarea(idTarea);
 
-            if(unaTarea.id == idTarea)
-                this.state.listaTareas.splice(index, 1);
-        })
-
-        this.actualizarIds();
         this.setState({});
     }
 
     agregarNuevaTarea(unaTareaNueva: ITarea){
-        unaTareaNueva.id = this.state.listaTareas.length + 1;
+        unaTareaNueva.id = this.state.listaTareas.length;
 
         this.state.listaTareas.push(unaTareaNueva);
         
@@ -60,14 +70,12 @@ class ComponenteDia extends React.Component<IProps, IState> {
     }
 
     render(){      
+        this.setLista();
         let { listaTareas } = this.state;
-  
 
         return(
             <div className="div-DiaDeLaSemana">
 
-                <ModalAltaTarea onGuardarTarea={this.agregarNuevaTarea} labelBoton="Nueva Tarea"></ModalAltaTarea>
-                
                 <Row className="tituloDiaDeLaSemana">
                     <h3>{this.props.dia}</h3>                               
                 </Row>
