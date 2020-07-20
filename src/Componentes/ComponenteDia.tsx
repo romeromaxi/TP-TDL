@@ -38,6 +38,7 @@ class ComponenteDia extends React.Component<IProps, IState> {
 
     render(){      
         let { listaTareas } = this.props;
+        listaTareas.sort((a, b) => (a.hora > b.hora) ? 1 : -1);
 
         return(
             <div className="div-DiaDeLaSemana">

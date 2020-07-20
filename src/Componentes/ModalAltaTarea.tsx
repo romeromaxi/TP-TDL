@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Input, Col } from 'reactstrap';
-import Select from 'react-select';
+//import Select from 'react-select';
 
 import ITarea from '../Interfaces/Tarea';
 
