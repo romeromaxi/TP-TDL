@@ -1,8 +1,11 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Input, Col } from 'reactstrap';
 import Select, { OptionsType } from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 import ITarea from '../Interfaces/Tarea';
+
+const animatedComponents = makeAnimated();
 
 interface IProps{
   labelBoton: string;
@@ -157,7 +160,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
               </FormGroup> */}
               <FormGroup>
                 <Label for="selDiaTarea">Días de la Semana</Label>
-                <Select id="selDiaTarea" options={options} isMulti={true} onChange={selectOption => this.cambiarDiasTarea(selectOption as ValueType<OptionType>)}/>
+                <Select id="selDiaTarea" options={options} components={animatedComponents} isMulti={true} onChange={selectOption => this.cambiarDiasTarea(selectOption as ValueType<OptionType>)}/>
               </FormGroup>              
               <FormGroup>
                 <Label for="txtHoraTarea">Hora</Label>
