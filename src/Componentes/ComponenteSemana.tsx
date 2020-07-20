@@ -52,10 +52,15 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         this.setState({});
     }
 
-    agregarNuevaTarea(unaTareaNueva: ITarea){
-        unaTareaNueva.id = this.state.listaTareas.length;
-        this.state.listaTareas.push(unaTareaNueva);
-        this.setState({});
+    agregarNuevaTarea(unaTareaNueva: Array<ITarea>){
+        unaTareaNueva.forEach((unaTarea, index) => {
+            unaTarea.id = this.state.listaTareas.length + index;
+        })
+
+        let nuevoStateTareas = this.state.listaTareas.concat(unaTareaNueva);
+        this.setState({
+            listaTareas: nuevoStateTareas
+        });
     }
 
     render(){
