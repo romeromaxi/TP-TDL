@@ -49,7 +49,8 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
 
   cambiarVisibilidad(){
     this.setState({
-      estaVisible: !this.state.estaVisible
+      estaVisible: !this.state.estaVisible,
+      unaTarea: new Tarea()
     })
   }
 

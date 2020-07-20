@@ -27,51 +27,17 @@ class ComponenteDia extends React.Component<IProps, IState> {
     
     constructor(props: IProps){
         super(props);
-         
-        this.state = {
-            listaTareas: this.props.listaTareas
-        };
-
-        this.borrarTarea = this.borrarTarea.bind(this);
-        this.agregarNuevaTarea = this.agregarNuevaTarea.bind(this);
         
+        this.borrarTarea = this.borrarTarea.bind(this);        
     }
-
-    // actualizarIds(){
-    //     this.state = {
-    //         listaTareas: this.props.listaTareas
-    //     };
-
-    //     // this.state.listaTareas.forEach((unaTarea, index) => {
-    //     //     unaTarea.id = index;
-    //     // })
-
-    // }
-
-    setLista(){
-        this.state = {
-            listaTareas: this.props.listaTareas
-        };
-    }
-
+    
     borrarTarea(idTarea: number) {
         console.log(idTarea);
         this.props.onBorrarTarea(idTarea);
-
-        this.setState({});
-    }
-
-    agregarNuevaTarea(unaTareaNueva: ITarea){
-        unaTareaNueva.id = this.state.listaTareas.length;
-
-        this.state.listaTareas.push(unaTareaNueva);
-        
-        this.setState({});
     }
 
     render(){      
-        this.setLista();
-        let { listaTareas } = this.state;
+        let { listaTareas } = this.props;
 
         return(
             <div className="div-DiaDeLaSemana">
