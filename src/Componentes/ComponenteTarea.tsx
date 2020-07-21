@@ -32,7 +32,7 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
         return(
             <div>
                 
-                <Container warn={this.state.visibilidad} className="cont-tarea" style={{justifyContent:"center"}}>
+                <Container warn={this.state.visibilidad} className={this.props.unaTarea.hora > (new Date()).toLocaleTimeString(['en-GB'], {hour: '2-digit', minute:'2-digit'}) ? "cont-tareavigente" :"cont-tareavencido"} style={{justifyContent:"center"}}>
           
                     <Row >
                         <Col>

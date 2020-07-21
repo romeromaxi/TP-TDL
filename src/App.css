@@ -42,7 +42,7 @@
     margin: 20px;
 }
 
-.cont-tarea{
+.cont-tareavigente{
     background-color: lightblue ;
     justify-content: center;
     border: 1px solid lightblue ;
@@ -50,3 +50,10 @@
     margin: 10px;
 }
 
+.cont-tareavencida{
+    background-color: red ;
+    justify-content: center;
+    border: 1px solid red ;
+    border-radius: 10%;
+    margin: 10px;
+}
