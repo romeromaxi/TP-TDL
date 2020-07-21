@@ -83,8 +83,8 @@ class ComponenteSemana extends React.Component<IProps, IState> {
                         this.nombreDias.map((unDia:string, i:number)=>{
                             
                             return (
-                            <Col>
-                                <ComponenteDia dia={unDia} id={i} listaTareas={this.state.listaTareas.filter(x => x.dia == unDia)} onBorrarTarea={this.borrarTarea}></ComponenteDia>
+                            <Col key={i}>
+                                <ComponenteDia key={i} dia={unDia} id={i} listaTareas={this.state.listaTareas.filter(x => x.dia == unDia)} onBorrarTarea={this.borrarTarea}></ComponenteDia>
                             </Col>
                             )
                         })

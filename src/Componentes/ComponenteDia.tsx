@@ -50,7 +50,7 @@ class ComponenteDia extends React.Component<IProps, IState> {
                 <Row className="tareasDelDia">
                     <Col>
                         {listaTareas.map(tarea =>
-                            <ComponenteTarea unaTarea={tarea}
+                            <ComponenteTarea key={tarea.id} unaTarea={tarea}
                                              onBorrarTarea={this.borrarTarea}></ComponenteTarea>       
                         )}
                     </Col>             
