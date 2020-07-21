@@ -38,10 +38,10 @@ class Tarea implements ITarea
 const options : OptionType[] = [
   { value: 'Lunes', label: 'Lunes' },
   { value: 'Martes', label: 'Martes' },
-  { value: 'Miercoles', label: 'Miercoles' },
+  { value: 'Miércoles', label: 'Miércoles' },
   { value: 'Jueves', label: 'Jueves' },
   { value: 'Viernes', label: 'Viernes' },
-  { value: 'Sabado', label: 'Sabado' },
+  { value: 'Sábado', label: 'Sábado' },
   { value: 'Domingo', label: 'Domingo' }
 ]
 
@@ -54,7 +54,7 @@ type ValueType<OptionType> = Array<OptionType>;
 
 class ModalAltaTarea extends React.Component<IProps, IState> {
 
-  nombreDias = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+  nombreDias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
   constructor(props: IProps){
     super(props);

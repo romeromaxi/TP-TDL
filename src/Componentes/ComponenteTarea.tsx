@@ -30,6 +30,32 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
 
     render(){
         return(
+
+            <div className={this.props.unaTarea.hora > 
+                            (new Date()).toLocaleTimeString(['en-GB'], {hour: '2-digit', minute:'2-digit'}) 
+                            ? "tarea tarea-vigente" : "tarea tarea-vencida"}>
+                <Row>
+                    <Col className="tarea-titulo">
+                        {this.props.unaTarea.nombre}                          
+                    </Col>
+                    <Col>
+                        <Button close onClick={this.borrarTarea}></Button>
+                    </Col>
+                </Row>
+                <Row >
+                    <Col></Col>
+                    <Col className="tarea-hora">
+                        A las {this.props.unaTarea.hora}
+                    </Col>
+                </Row>
+                <Row>
+                    <Col className="tarea-descripcion">
+                        {this.props.unaTarea.descripcion}
+                    </Col>
+                </Row> 
+            </div>
+        )
+            {/*
             <div>
                 
                 <Container  warn={this.state.visibilidad}
@@ -37,10 +63,12 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
                             style={{justifyContent:"center"}}>
           
                     <Row >
-                        <Col>
-                            {<h5>{this.props.unaTarea.nombre}</h5>}                            
+                        <Col className="tarea-titulo">
+                            {this.props.unaTarea.nombre}                          
                         </Col>
-                        <Button close onClick={this.borrarTarea}></Button>
+                        {/*<Col>
+                            <Button close onClick={this.borrarTarea}></Button>
+                        </Col>
                     </Row>
                     <Row style={{justifyContent:"center"}}>
                         <p>Hora: {this.props.unaTarea.hora}</p>
@@ -49,8 +77,10 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
                         <p>Descripcion: {this.props.unaTarea.descripcion}</p>
                     </Row>                    
                 </Container>
-            </div>
-        )
+            </div>*/}
+
+            
+        
     }
 
 }

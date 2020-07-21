@@ -22,7 +22,7 @@ interface IState{
 class ComponenteSemana extends React.Component<IProps, IState> {   
     
     
-    nombreDias = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+    nombreDias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
     
     constructor(props: IProps){
         super(props);
@@ -67,8 +67,16 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         
         return(
             <div className="div-ComponenteSemana">
-                
-                <ModalAltaTarea onGuardarTarea={this.agregarNuevaTarea} labelBoton="Nueva Tarea"></ModalAltaTarea>
+
+                <Row className="div-ComponenteSemana-Header">
+                    <Col className="titulo">
+                        Calendario Cuarentenil
+                    </Col>
+                    <Col className="buttonAltaTarea">
+                        <ModalAltaTarea onGuardarTarea={this.agregarNuevaTarea} labelBoton="Nueva Tarea"></ModalAltaTarea>
+                    </Col>
+                </Row>
+
 
                 <Row >
                     {
