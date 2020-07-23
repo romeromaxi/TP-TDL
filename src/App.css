@@ -25,13 +25,18 @@
     line-height: 30px;
 }
 
-.div-ComponenteSemana-Header > .buttonAltaTarea{
-    text-align: right;
+.div-ComponenteSemana-HeaderButtons > .btn-toolbar {
+    float: right;
 }
 
-.div-ComponenteSemana-Header > .buttonAltaTarea > div > button{
+.buttonFiltroTarea {
+    margin-right: 10px;
+}
+
+.div-ComponenteSemana-HeaderButtons button  {
     font-size: 14px;
 }
+
 
 /* Componenten Día */
 .div-DiaDeLaSemana{

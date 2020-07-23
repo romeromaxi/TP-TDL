@@ -1,6 +1,7 @@
 import React,{ MouseEvent}  from 'react';
 import { Row, Col, Button,Container } from 'reactstrap';
 import ITarea from '../Interfaces/Tarea';
+import UtilFecha from '../Util/UtilFechaHoy'
 import '../App.css';
 
 interface IProps{
@@ -31,8 +32,7 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
     render(){
         return(
 
-            <div className={this.props.unaTarea.hora > 
-                            (new Date()).toLocaleTimeString(['en-GB'], {hour: '2-digit', minute:'2-digit'}) 
+            <div className={this.props.unaTarea.hora > UtilFecha.obtenerHora()
                             ? "tarea tarea-vigente" : "tarea tarea-vencida"}>
                 <Row>
                     <Col className="tarea-titulo">
@@ -55,32 +55,6 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
                 </Row> 
             </div>
         )
-            {/*
-            <div>
-                
-                <Container  warn={this.state.visibilidad}
-                            className={this.props.unaTarea.hora > (new Date()).toLocaleTimeString(['en-GB'], {hour: '2-digit', minute:'2-digit'}) ? "cont-tareavigente" :"cont-tareavencida"}
-                            style={{justifyContent:"center"}}>
-          
-                    <Row >
-                        <Col className="tarea-titulo">
-                            {this.props.unaTarea.nombre}                          
-                        </Col>
-                        {/*<Col>
-                            <Button close onClick={this.borrarTarea}></Button>
-                        </Col>
-                    </Row>
-                    <Row style={{justifyContent:"center"}}>
-                        <p>Hora: {this.props.unaTarea.hora}</p>
-                    </Row>
-                    <Row style={{justifyContent:"center"}}>
-                        <p>Descripcion: {this.props.unaTarea.descripcion}</p>
-                    </Row>                    
-                </Container>
-            </div>*/}
-
-            
-        
     }
 
 }

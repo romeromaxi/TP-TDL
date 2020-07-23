@@ -146,18 +146,6 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
                 <Label for="txtTituloTarea">Título</Label>
                 <Input id="txtTituloTarea" type="text" onChange={e => this.cambiarNombreTarea(e.target.value)} />
               </FormGroup>
-              {/* <FormGroup>
-                <Label for="selDiaTarea">Día de la Semana</Label>
-                <Input id="selDiaTarea" type="select" onChange={e => this.cambiarDiaTarea(e.target.value)}>
-                  <option value={-1}></option>
-                  {
-                        this.nombreDias.map((unDia:string, i:number)=>{
-                          return <option value={i} key={i}>{unDia}</option>
-                        })
-                  }                  
-                  
-                </Input>
-              </FormGroup> */}
               <FormGroup>
                 <Label for="selDiaTarea">Días de la Semana</Label>
                 <Select id="selDiaTarea" options={options} components={animatedComponents} isMulti={true} onChange={selectOption => this.cambiarDiasTarea(selectOption as ValueType<OptionType>)}/>
