@@ -29,10 +29,9 @@ class Tarea
         this.estado = new EstadoHecho();
     }
 
-
     actualizarEstado(){
         if (UtilFechaHoy.esFechaPasada(this.dia, this.hora))
-            this.estado = new EstadoVencido();
+            this.estado = this.estado.seVencio();
         else 
             this.estado = new EstadoVigente();
     }

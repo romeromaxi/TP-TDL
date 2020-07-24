@@ -5,6 +5,10 @@ class EstadoVencido implements IEstado{
         return "tarea tarea-vencida";
     }
 
+    seVencio(){
+        return this;
+    }
+
 }
 
 class EstadoVigente implements IEstado{
@@ -12,11 +16,19 @@ class EstadoVigente implements IEstado{
         return "tarea tarea-vigente";
     }
 
+    seVencio(){
+        return new EstadoVencido;
+    }
+
 }
 
 class EstadoHecho implements IEstado{
     getEstilo(){
         return "tarea tarea-completada";
+    }
+
+    seVencio(){
+        return this;
     }
 
 }
