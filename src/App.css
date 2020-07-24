@@ -110,6 +110,11 @@
     border: 1px solid red ;
 }
 
+.tarea-completada{
+    background-color: green ;
+    border: 1px solid green ;
+}
+
 .tarea-titulo{
     font-size:16px; 
     text-align:left;
