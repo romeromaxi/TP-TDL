@@ -22,7 +22,7 @@ class Tarea
 
     getEstilo(){
         this.actualizarEstado();
-        return this.estado.getEstilo;
+        return this.estado.getEstilo();
     }
 
     completado(){

@@ -34,7 +34,7 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
 
             /* <div className={this.props.unaTarea.hora > UtilFecha.obtenerHora()
                             ? "tarea tarea-vigente" : "tarea tarea-vencida"}> */
-            <div className={this.props.unaTarea.getEstilo()()}>
+            <div className={this.props.unaTarea.getEstilo()}>
                 <Row>
                     <Col className="tarea-titulo">
                         {this.props.unaTarea.nombre}                          
