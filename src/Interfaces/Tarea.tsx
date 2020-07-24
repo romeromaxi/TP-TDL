@@ -53,9 +53,10 @@ class Tarea
         if (getDiaIndex(this.dia) < UtilFecha.obtenerDiaDeSemana()){
             this.estado = new EstadoVencido;
             return
+        }
         if (getDiaIndex(this.dia) == UtilFecha.obtenerDiaDeSemana()){
             this.hora > UtilFecha.obtenerHora()
-            ? this.estado = new EstadoVigente : this.estado = new EstadoVencido;}
+            ? this.estado = new EstadoVigente : this.estado = new EstadoVencido;
         }
     }
 
