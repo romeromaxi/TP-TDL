@@ -36,8 +36,8 @@ class ComponenteSemana extends React.Component<IProps, IState> {
          
         this.state = {
             tareaVisibilidad: TareaVisibilidadFiltro.SinFiltro,
-            //listaTareas: []
-            listaTareas:[
+            listaTareas: []
+           /* listaTareas:[
                 {
                     id: 0,
                     dia: "Lunes",
@@ -77,7 +77,7 @@ class ComponenteSemana extends React.Component<IProps, IState> {
                     descripcion: "No te olvides de dormir",
                     hora: "01:00"
                 },
-            ]
+            ] */
         };
 
         this.borrarTarea = this.borrarTarea.bind(this);
