@@ -1,6 +1,7 @@
 import IEstado from './IEstado';
 import {EstadoHecho, EstadoVencido, EstadoVigente} from './Estados';
 import UtilFecha from '../Util/UtilFechaHoy'
+import UtilFechaHoy from '../Util/UtilFechaHoy';
 
 function getDiaIndex(diaString: String){
     switch (diaString) {
@@ -50,13 +51,10 @@ class Tarea
 
 
     actualizarEstado(){
-        if (getDiaIndex(this.dia) < UtilFecha.obtenerDiaDeSemana()){
+        if (UtilFechaHoy.esFechaPasada(this.dia, this.hora))
             this.estado = new EstadoVencido;
-            return
-        if (getDiaIndex(this.dia) == UtilFecha.obtenerDiaDeSemana()){
-            this.hora > UtilFecha.obtenerHora()
-            ? this.estado = new EstadoVigente : this.estado = new EstadoVencido;}
-        }
+        else 
+            this.estado = new EstadoVigente;
     }
 
 

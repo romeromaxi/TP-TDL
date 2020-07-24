@@ -119,13 +119,13 @@ class ComponenteSemana extends React.Component<IProps, IState> {
             case TareaVisibilidadFiltro.Vigentes:
                 return this.state.listaTareas.filter(
                         x => x.dia === unDia &&
-                        x.hora > UtilFecha.obtenerHora()
+                        !UtilFecha.esFechaPasada(x.dia, x.hora)
                     );
 
             case TareaVisibilidadFiltro.Vencidas:
                 return this.state.listaTareas.filter(
                         x => x.dia === unDia &&
-                        x.hora < UtilFecha.obtenerHora()
+                        UtilFecha.esFechaPasada(x.dia, x.hora)
                     );
         
             default:

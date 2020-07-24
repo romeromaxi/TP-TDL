@@ -106,7 +106,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
       unaTarea.dia = element;
       unaTarea.nombre = this.state.unaTarea.nombre;
       unaTarea.descripcion = this.state.unaTarea.descripcion;
-      unaTarea.hora = this.state.unaTarea.hora;      
+      unaTarea.hora = this.state.unaTarea.hora;  
       listaNuevoDias.push(unaTarea);
     });
 
