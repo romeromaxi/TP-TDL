@@ -3,25 +3,6 @@ import {EstadoHecho, EstadoVencido, EstadoVigente} from './Estados';
 import UtilFecha from '../Util/UtilFechaHoy'
 import UtilFechaHoy from '../Util/UtilFechaHoy';
 
-function getDiaIndex(diaString: String){
-    switch (diaString) {
-        case 'Lunes':
-            return 1;
-        case 'Martes':
-            return 2;
-        case 'Miércoles':
-            return 3;
-        case 'Jueves':
-            return 4;
-        case 'Viernes':
-            return 5;
-        case 'Sábado':
-            return 6;
-        case 'Domingo':
-            return 7;
-      }
-}
-
 class Tarea  
 {
     id: number
