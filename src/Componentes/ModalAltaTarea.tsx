@@ -3,37 +3,21 @@ import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Input, Col } f
 import Select, { OptionsType } from 'react-select';
 import makeAnimated from 'react-select/animated';
 
-import ITarea from '../Interfaces/Tarea';
+import Tarea from '../Interfaces/Tarea';
 
 const animatedComponents = makeAnimated();
 
 interface IProps{
   labelBoton: string;
-  onGuardarTarea: (unaTarea: Array<ITarea>) => void;
+  onGuardarTarea: (unaTarea: Array<Tarea>) => void;
 };
 
 interface IState{
   estaVisible : boolean;
-  unaTarea: ITarea;
+  unaTarea: Tarea;
   listaDeDias: string[];
 };
 
-class Tarea implements ITarea
-{
-    id: number
-    dia: string
-    nombre: string
-    descripcion: string
-    hora: string
-
-    constructor(){
-        this.id = 0;
-        this.dia = "";
-        this.nombre = "";
-        this.descripcion = "";
-        this.hora = "";
-    }
-}
 
 const options : OptionType[] = [
   { value: 'Lunes', label: 'Lunes' },
@@ -115,7 +99,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   guardarTarea() {
     
     //Esto lo soluciona.
-    var listaNuevoDias: Array<ITarea> = [];
+    var listaNuevoDias: Array<Tarea> = [];
 
     this.state.listaDeDias.forEach(element => {
       var unaTarea = new Tarea();
