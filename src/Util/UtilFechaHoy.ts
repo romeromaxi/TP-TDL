@@ -1,7 +1,5 @@
 class UtilFechaHoy {
 
-    constructor(){}
-    
     public esFechaPasada(dia : string, hora : string) : boolean {
         return this.esDiaPasado(dia) || (this.esDiaActual(dia) && this.esHoraPasada(hora));
     } 

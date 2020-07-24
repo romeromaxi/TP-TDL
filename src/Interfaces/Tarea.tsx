@@ -1,6 +1,5 @@
 import IEstado from './IEstado';
 import {EstadoHecho, EstadoVencido, EstadoVigente} from './Estados';
-import UtilFecha from '../Util/UtilFechaHoy'
 import UtilFechaHoy from '../Util/UtilFechaHoy';
 
 class Tarea  
@@ -18,7 +17,7 @@ class Tarea
         this.nombre = "";
         this.descripcion = "";
         this.hora = "";
-        this.estado = new EstadoVigente;
+        this.estado = new EstadoVigente();
     }
 
     getEstilo(){
@@ -27,15 +26,15 @@ class Tarea
     }
 
     completado(){
-        this.estado = new EstadoHecho;
+        this.estado = new EstadoHecho();
     }
 
 
     actualizarEstado(){
         if (UtilFechaHoy.esFechaPasada(this.dia, this.hora))
-            this.estado = new EstadoVencido;
+            this.estado = new EstadoVencido();
         else 
-            this.estado = new EstadoVigente;
+            this.estado = new EstadoVigente();
     }
 
 

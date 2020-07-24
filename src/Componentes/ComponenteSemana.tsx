@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, Row, Button, ButtonToolbar} from 'reactstrap'
+import {Col, Row, ButtonToolbar} from 'reactstrap'
 import ComponenteDia from './ComponenteDia';
 
 import ITarea from '../Interfaces/Tarea';

@@ -1,7 +1,6 @@
-import React,{ MouseEvent}  from 'react';
-import { Row, Col, Button,Container } from 'reactstrap';
+import React from 'react';
+import { Row, Col, Button } from 'reactstrap';
 import ITarea from '../Interfaces/Tarea';
-import UtilFecha from '../Util/UtilFechaHoy'
 import '../App.css';
 
 interface IProps{

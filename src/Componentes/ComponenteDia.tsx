@@ -1,10 +1,9 @@
 import '../App.css';
 
-import React,{ MouseEvent}  from 'react';
-import { Row, Col, Button } from 'reactstrap';
+import React from 'react';
+import { Row, Col } from 'reactstrap';
 
 import ITarea from '../Interfaces/Tarea';
-import ModalAltaTarea from './ModalAltaTarea';
 import ComponenteTarea from './ComponenteTarea';
 
 interface IProps{
