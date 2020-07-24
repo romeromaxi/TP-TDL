@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {KeyboardEvent} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Input, Col } from 'reactstrap';
 import Select, { OptionsType } from 'react-select';
 import makeAnimated from 'react-select/animated';
@@ -40,18 +40,23 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
 
   nombreDias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
+
   constructor(props: IProps){
     super(props);
-     
+
     this.state = {
         estaVisible: false,
         unaTarea: new Tarea(),
         listaDeDias: []
     };
-
+    
     this.guardarTarea = this.guardarTarea.bind(this);
     this.cambiarVisibilidad = this.cambiarVisibilidad.bind(this);
+    this.sePrecionoEnter = this.sePrecionoEnter.bind(this);
+    
+    this.guardarTareaConEnter = this.guardarTareaConEnter.bind(this);
   }
+
 
   cambiarVisibilidad(){
     this.setState({
@@ -95,6 +100,15 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
     this.state.unaTarea.hora = hora;
     this.setState({});
   }
+  sePrecionoEnter(){
+    this.guardarTarea();
+  }
+
+  guardarTareaConEnter(e: KeyboardEvent<HTMLElement>){
+    if(e.key == 'Enter'){
+      this.guardarTarea();
+    }
+  }
 
   guardarTarea() {
     
@@ -121,14 +135,15 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
           <Button color="primary" onClick={this.cambiarVisibilidad}>{this.props.labelBoton}</Button>
 
           <Modal isOpen={this.state.estaVisible} 
-                 toggle={this.cambiarVisibilidad}>
-
+                 toggle={this.cambiarVisibilidad}
+                 onKeyPress={this.guardarTareaConEnter}>
+                  
             <ModalHeader toggle={this.cambiarVisibilidad}>Agregar Tarea</ModalHeader>
 
-            <ModalBody>
+            <ModalBody onKeyPress={this.guardarTareaConEnter}>
               <FormGroup>
                 <Label for="txtTituloTarea">Título</Label>
-                <Input id="txtTituloTarea" type="text" onChange={e => this.cambiarNombreTarea(e.target.value)} />
+                <Input id="txtTituloTarea" type="text" onChange={e => this.cambiarNombreTarea(e.target.value)}   />
               </FormGroup>
               <FormGroup>
                 <Label for="selDiaTarea">Días de la Semana</Label>
