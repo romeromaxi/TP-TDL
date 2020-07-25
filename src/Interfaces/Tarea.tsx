@@ -20,24 +20,22 @@ class Tarea
         this.estado = new EstadoVigente();
     }
 
-    getEstilo(){
+    getEstilo() {
         this.actualizarEstado();
         return this.estado.getEstilo();
     }
 
-    checkeado(){
+    checkeado() {
         this.estado = this.estado.fueCheackeado();
     }
 
-    uncheckeado(){
+    uncheckeado() {
         this.estado = this.estado.fueUncheackeado();
     }
 
-    actualizarEstado(){
+    actualizarEstado() {
         if (UtilFechaHoy.esFechaPasada(this.dia, this.hora))
             this.estado = this.estado.seVencio();
-        else 
-            this.estado = new EstadoVigente();
     }
 
 }
