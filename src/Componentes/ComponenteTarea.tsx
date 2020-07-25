@@ -10,6 +10,7 @@ interface IProps{
 
 interface IVisibilidad{
     visibilidad: boolean;
+    checkeado: boolean;
 }
 
 class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
@@ -18,25 +19,34 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
         super(props);
 
          this.state ={
-             visibilidad: true
+             visibilidad: true,
+             checkeado: false
          };
 
         this.borrarTarea = this.borrarTarea.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     };
 
     borrarTarea() {
         this.props.onBorrarTarea(this.props.unaTarea.id);
     };
 
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if(!this.state.checkeado){
+            this.props.unaTarea.checkeado();
+            this.setState({checkeado: true});
+        } else{
+            this.props.unaTarea.uncheckeado();
+            this.setState({checkeado: false});
+        }
+    };
 
     render(){
         return(
-
-            /* <div className={this.props.unaTarea.hora > UtilFecha.obtenerHora()
-                            ? "tarea tarea-vigente" : "tarea tarea-vencida"}> */
             <div className={this.props.unaTarea.getEstilo()}>
                 <Row>
                     <Col className="tarea-titulo">
+                        <input type="checkbox" checked={this.state.checkeado} onChange={this.handleChange}/>
                         {this.props.unaTarea.nombre}                          
                     </Col>
                     <Col>
