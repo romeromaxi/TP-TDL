@@ -25,8 +25,12 @@ class Tarea
         return this.estado.getEstilo();
     }
 
-    completado(){
-        this.estado = new EstadoHecho();
+    checkeado(){
+        this.estado = this.estado.fueCheackeado();
+    }
+
+    uncheckeado(){
+        this.estado = this.estado.fueUncheackeado();
     }
 
     actualizarEstado(){
@@ -35,7 +39,6 @@ class Tarea
         else 
             this.estado = new EstadoVigente();
     }
-
 
 }
 
