@@ -37,47 +37,6 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         this.state = {
             tareaVisibilidad: TareaVisibilidadFiltro.SinFiltro,
             listaTareas: []
-           /* listaTareas:[
-                {
-                    id: 0,
-                    dia: "Lunes",
-                    nombre: "TDL",
-                    descripcion: "Vamos a empezar a presentar el TP",
-                    hora: "18:00"
-                },
-
-                {
-                    id: 1,
-                    dia: "Martes",
-                    nombre: "Fisica 2",
-                    descripcion: "Vamos a empezar con campos magnéticos",
-                    hora: "15:00"
-                },
-
-                {
-                    id: 2,
-                    dia: "Jueves",
-                    nombre: "Fisica 2",
-                    descripcion: "Vamos a continuar con campos magnéticos",
-                    hora: "15:00"
-                },
-
-                {
-                    id: 3,
-                    dia: "Domingo",
-                    nombre: "Asado",
-                    descripcion: "Hacer un buen asado de domingo",
-                    hora: "13:00"
-                },
-
-                {
-                    id: 4,
-                    dia: "Lunes",
-                    nombre: "Dormir",
-                    descripcion: "No te olvides de dormir",
-                    hora: "01:00"
-                },
-            ] */
         };
 
         this.borrarTarea = this.borrarTarea.bind(this);
