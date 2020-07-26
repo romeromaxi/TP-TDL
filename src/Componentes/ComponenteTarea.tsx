@@ -10,7 +10,6 @@ interface IProps{
 
 interface IVisibilidad{
     visibilidad: boolean;
-    checkeado: boolean;
 }
 
 class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
@@ -20,7 +19,6 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
 
          this.state ={
              visibilidad: true,
-             checkeado: false
          };
 
         this.borrarTarea = this.borrarTarea.bind(this);
@@ -32,12 +30,12 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
     };
 
     handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if(!this.state.checkeado){
+        if(!this.props.unaTarea.estaCheckeado()){
             this.props.unaTarea.checkeado();
-            this.setState({checkeado: true});
+            this.setState({});
         } else{
             this.props.unaTarea.uncheckeado();
-            this.setState({checkeado: false});
+            this.setState({});
         }
     };
 
@@ -46,7 +44,7 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
             <div className={this.props.unaTarea.getEstilo()}>
                 <Row>
                     <Col className="tarea-titulo">
-                        <input type="checkbox" checked={this.state.checkeado} onChange={this.handleChange}/>
+                        <input type="checkbox" checked={this.props.unaTarea.estaCheckeado()} onChange={this.handleChange}/>
                         {this.props.unaTarea.nombre}                          
                     </Col>
                     <Col>

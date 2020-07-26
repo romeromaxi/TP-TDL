@@ -9,14 +9,17 @@ class EstadoVencido implements IEstado {
         return this;
     }
 
-    fueCheackeado(){
+    fueHecho(){
         return new EstadoHecho;
     }
 
-    fueUncheackeado(){
+    fueDeshecho(){
         return new EstadoVigente;
     }
 
+    estaHecho(){
+        return false;
+    }
 }
 
 class EstadoVigente implements IEstado {
@@ -28,34 +31,39 @@ class EstadoVigente implements IEstado {
         return new EstadoVencido;
     }
 
-    fueCheackeado(){
-        console.log('1');
+    fueHecho(){
         return new EstadoHecho;
     }
 
-    fueUncheackeado(){
+    fueDeshecho(){
         return new EstadoVigente;
     }
 
+    estaHecho(){
+        return false;
+    }
 }
 
 class EstadoHecho implements IEstado {
     getEstilo(){
-        return "tarea tarea-completada";
+        return "tarea tarea-hecha";
     }
 
     seVencio(){
         return this;
     }
 
-    fueCheackeado(){
+    fueHecho(){
         return new EstadoHecho;
     }
 
-    fueUncheackeado(){
+    fueDeshecho(){
         return new EstadoVigente;
     }
 
+    estaHecho(){
+        return true;
+    }
 }
 
 export {EstadoHecho, EstadoVencido, EstadoVigente}

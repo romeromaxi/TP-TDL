@@ -26,16 +26,20 @@ class Tarea
     }
 
     checkeado() {
-        this.estado = this.estado.fueCheackeado();
+        this.estado = this.estado.fueHecho();
     }
 
     uncheckeado() {
-        this.estado = this.estado.fueUncheackeado();
+        this.estado = this.estado.fueDeshecho();
     }
 
     actualizarEstado() {
         if (UtilFechaHoy.esFechaPasada(this.dia, this.hora))
             this.estado = this.estado.seVencio();
+    }
+
+    estaCheckeado(){
+        return this.estado.estaHecho();
     }
 
 }
