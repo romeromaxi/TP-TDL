@@ -1,8 +1,9 @@
 interface IEstado{
     getEstilo(): string;
     seVencio(): IEstado;
-    fueCheackeado(): IEstado;
-    fueUncheackeado(): IEstado;
+    fueHecho(): IEstado;
+    fueDeshecho(): IEstado;
+    estaHecho(): boolean;
 }
 
 export default IEstado;
