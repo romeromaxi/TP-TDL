@@ -13,7 +13,8 @@ class UtilFechaHoy {
     }
 
     public obtenerDiaDeSemana() : number {
-        return this.obtenerFecha().getDay();
+        let aux =  this.obtenerFecha().getDay();
+        return (aux == 0) ? 7 : aux;
     }
 
     private esDiaPasado(dia : string) : boolean {
