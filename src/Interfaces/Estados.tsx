@@ -46,7 +46,7 @@ class EstadoVigente implements IEstado {
 
 class EstadoHecho implements IEstado {
     getEstilo(){
-        return "tarea tarea-completada";
+        return "tarea tarea-hecha";
     }
 
     seVencio(){
