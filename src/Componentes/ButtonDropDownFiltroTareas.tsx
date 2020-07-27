@@ -28,21 +28,21 @@ class ButtonDropDownFiltroTareas extends React.Component<IProps, IState> {
         this.filtrarTareasPorSinFiltro = this.filtrarTareasPorSinFiltro.bind(this);
     }
 
-    cambiarVisibilidad(){
+    cambiarVisibilidad(): void {
         this.setState({
             dropdownOpen: !this.state.dropdownOpen
         })
     }
 
-    filtrarTareasPorVigentes() {
+    filtrarTareasPorVigentes(): void {
         this.props.onFiltraTareas(TareaVisibilidadFiltro.Vigentes);
     }
 
-    filtrarTareasPorVencidas() {
+    filtrarTareasPorVencidas(): void {
         this.props.onFiltraTareas(TareaVisibilidadFiltro.Vencidas);
     }
 
-    filtrarTareasPorSinFiltro() {
+    filtrarTareasPorSinFiltro(): void {
         this.props.onFiltraTareas(TareaVisibilidadFiltro.SinFiltro);
     }
 

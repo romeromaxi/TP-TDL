@@ -52,13 +52,12 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
     
     this.guardarTarea = this.guardarTarea.bind(this);
     this.cambiarVisibilidad = this.cambiarVisibilidad.bind(this);
-    this.sePrecionoEnter = this.sePrecionoEnter.bind(this);
     
     this.guardarTareaConEnter = this.guardarTareaConEnter.bind(this);
   }
 
 
-  cambiarVisibilidad(){
+  cambiarVisibilidad(): void {
     this.setState({
       estaVisible: !this.state.estaVisible,
       unaTarea: new Tarea(),
@@ -66,24 +65,17 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
     })
   }
 
-  cambiarNombreTarea(nombre: string) {
+  cambiarNombreTarea(nombre: string): void {
     this.state.unaTarea.nombre = nombre;
     this.setState({});
   }
 
-  // cambiarDiaTarea(dia: string) {
-  //   this.state.unaTarea.dia = this.nombreDias[parseInt(dia)];
-  //   this.setState({});
-  // }
-
-  cambiarDescripcionTarea(descripcion: string){
-
+  cambiarDescripcionTarea(descripcion: string): void {
     this.state.unaTarea.descripcion = descripcion;
     this.setState({});
   }
 
-  cambiarDiasTarea(options? : ValueType<OptionType>) {
-
+  cambiarDiasTarea(options? : ValueType<OptionType>): void {
     let listaNuevoDias : string[] = [];
 
     options?.forEach(element => {
@@ -95,16 +87,12 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
     });
   }
 
-  cambiarHoraTarea(hora: string){
-
+  cambiarHoraTarea(hora: string): void{
     this.state.unaTarea.hora = hora;
     this.setState({});
   }
-  sePrecionoEnter(){
-    this.guardarTarea();
-  }
 
-  guardarTareaConEnter(e: KeyboardEvent<HTMLElement>){
+  guardarTareaConEnter(e: KeyboardEvent<HTMLElement>): void{
     if(e.key == 'Enter'){
       this.guardarTarea();
     }

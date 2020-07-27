@@ -1,5 +1,5 @@
 import IEstado from './IEstado';
-import {EstadoHecho, EstadoVencido, EstadoVigente} from './Estados';
+import { EstadoVigente } from './Estados';
 import UtilFechaHoy from '../Util/UtilFechaHoy';
 
 class Tarea  
@@ -20,25 +20,25 @@ class Tarea
         this.estado = new EstadoVigente();
     }
 
-    getEstilo() {
+    getEstilo(): string {
         this.actualizarEstado();
         return this.estado.getEstilo();
     }
 
-    checkeado() {
+    checkeado(): void {
         this.estado = this.estado.fueHecho();
     }
 
-    uncheckeado() {
+    uncheckeado(): void {
         this.estado = this.estado.fueDeshecho();
     }
 
-    actualizarEstado() {
+    actualizarEstado(): void {
         if (UtilFechaHoy.esFechaPasada(this.dia, this.hora))
             this.estado = this.estado.seVencio();
     }
 
-    estaCheckeado(){
+    estaCheckeado(): boolean{
         return this.estado.estaHecho();
     }
 

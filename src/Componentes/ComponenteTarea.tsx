@@ -25,11 +25,11 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
         this.handleChange = this.handleChange.bind(this);
     };
 
-    borrarTarea() {
+    borrarTarea(): void {
         this.props.onBorrarTarea(this.props.unaTarea.id);
     };
 
-    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         if(!this.props.unaTarea.estaCheckeado()){
             this.props.unaTarea.checkeado();
             this.setState({});

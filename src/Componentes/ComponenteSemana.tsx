@@ -10,16 +10,7 @@ import ButtonDropDownFiltroTareas from './ButtonDropDownFiltroTareas'
 /* Enums */
 import TareaVisibilidadFiltro from '../Enums/TareaVisibilidadFiltro'
 
-
-interface IDia{
-    id: number;
-    nombre: string;
-    agregarTarea: (unaTarea: ITarea) => void;
-};
-
-interface IProps{  
-};
-
+interface IProps{ };
 
 interface IState{
     listaTareas: Array<ITarea>;
@@ -27,7 +18,6 @@ interface IState{
 };
 
 class ComponenteSemana extends React.Component<IProps, IState> {   
-    
     
     nombreDias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
     
@@ -44,13 +34,13 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         this.filtrarVisibilidadTareas = this.filtrarVisibilidadTareas.bind(this);
     }
 
-    actualizarIds() {
+    actualizarIds(): void {
         this.state.listaTareas.forEach((unaTarea, index) => {
             unaTarea.id = index;
         })
     }
 
-    borrarTarea(idTarea: number) {
+    borrarTarea(idTarea: number): void {
         this.state.listaTareas.forEach((unaTarea, index) => {
 
             if(unaTarea.id === idTarea)
@@ -61,7 +51,7 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         this.setState({});
     }
 
-    agregarNuevaTarea(unaTareaNueva: Array<ITarea>) {
+    agregarNuevaTarea(unaTareaNueva: Array<ITarea>): void {
         unaTareaNueva.forEach((unaTarea, index) => {
             unaTarea.id = this.state.listaTareas.length + index;
         })
@@ -72,7 +62,7 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         });
     }
 
-    obtenerTareasPorDia(unDia: string) {
+    obtenerTareasPorDia(unDia: string): ITarea[] {
 
         switch (this.state.tareaVisibilidad) {
             case TareaVisibilidadFiltro.Vigentes:
@@ -92,7 +82,7 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         }
     }
 
-    filtrarVisibilidadTareas(tareaVisibilidad: TareaVisibilidadFiltro) {
+    filtrarVisibilidadTareas(tareaVisibilidad: TareaVisibilidadFiltro): void {
         this.setState({
             tareaVisibilidad: tareaVisibilidad
         })

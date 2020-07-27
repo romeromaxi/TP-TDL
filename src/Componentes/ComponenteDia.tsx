@@ -17,11 +17,6 @@ interface IState {
     listaTareas: Array<ITarea>;
 };
 
-interface IVisbilidad {
-    visibilidad: boolean;
-}
-
-
 class ComponenteDia extends React.Component<IProps, IState> {
     
     constructor(props: IProps){
@@ -30,7 +25,7 @@ class ComponenteDia extends React.Component<IProps, IState> {
         this.borrarTarea = this.borrarTarea.bind(this);        
     }
     
-    borrarTarea(idTarea: number) {
+    borrarTarea(idTarea: number): void {
         console.log(idTarea);
         this.props.onBorrarTarea(idTarea);
     }

@@ -29,7 +29,7 @@ class UtilFechaHoy {
         return hora < this.obtenerHora();
     }
 
-    private getDiaIndex(diaString: String){
+    private getDiaIndex(diaString: String): number{
         switch (diaString) {
             case 'Lunes':
                 return 1;
