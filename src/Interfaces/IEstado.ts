@@ -4,6 +4,8 @@ interface IEstado{
     fueHecho(): IEstado;
     fueDeshecho(): IEstado;
     estaHecho(): boolean;
+    estaVencido(): boolean;
+    estaVigente(): boolean;
 }
 
 export default IEstado;

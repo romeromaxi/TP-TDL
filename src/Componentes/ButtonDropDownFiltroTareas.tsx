@@ -26,6 +26,7 @@ class ButtonDropDownFiltroTareas extends React.Component<IProps, IState> {
         this.filtrarTareasPorVigentes = this.filtrarTareasPorVigentes.bind(this);
         this.filtrarTareasPorVencidas = this.filtrarTareasPorVencidas.bind(this);
         this.filtrarTareasPorSinFiltro = this.filtrarTareasPorSinFiltro.bind(this);
+        this.filtrarTareasPorRealizadas = this.filtrarTareasPorRealizadas.bind(this);
     }
 
     cambiarVisibilidad(): void {
@@ -46,6 +47,10 @@ class ButtonDropDownFiltroTareas extends React.Component<IProps, IState> {
         this.props.onFiltraTareas(TareaVisibilidadFiltro.SinFiltro);
     }
 
+    filtrarTareasPorRealizadas(): void {
+        this.props.onFiltraTareas(TareaVisibilidadFiltro.Realizadas);
+    }
+
     render() {
         return(
             <div>
@@ -57,6 +62,7 @@ class ButtonDropDownFiltroTareas extends React.Component<IProps, IState> {
                         <DropdownItem onClick={this.filtrarTareasPorSinFiltro}>Todas</DropdownItem>
                         <DropdownItem onClick={this.filtrarTareasPorVigentes}>Vigentes</DropdownItem>
                         <DropdownItem onClick={this.filtrarTareasPorVencidas}>Vencidas</DropdownItem>
+                        <DropdownItem onClick={this.filtrarTareasPorRealizadas}>Realizadas</DropdownItem>
                     </DropdownMenu>
                 </ButtonDropdown>
             </div>

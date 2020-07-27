@@ -20,6 +20,14 @@ class EstadoVencido implements IEstado {
     estaHecho(): boolean {
         return false;
     }
+
+    estaVencido(): boolean {
+        return true;
+    }
+
+    estaVigente(): boolean {
+        return false;
+    }
 }
 
 class EstadoVigente implements IEstado {
@@ -41,6 +49,14 @@ class EstadoVigente implements IEstado {
 
     estaHecho(): boolean {
         return false;
+    }
+
+    estaVencido(): boolean {
+        return false;
+    }
+
+    estaVigente(): boolean {
+        return true;
     }
 }
 
@@ -64,6 +80,15 @@ class EstadoHecho implements IEstado {
     estaHecho(): boolean {
         return true;
     }
+
+    estaVencido(): boolean {
+        return false;
+    }
+
+    estaVigente(): boolean {
+        return false;
+    }
+    
 }
 
 export {EstadoHecho, EstadoVencido, EstadoVigente}

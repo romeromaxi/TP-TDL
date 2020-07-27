@@ -1,6 +1,6 @@
 import React, {KeyboardEvent} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Input, Col } from 'reactstrap';
-import Select, { OptionsType } from 'react-select';
+import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 import Tarea from '../Interfaces/Tarea';
@@ -93,7 +93,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   }
 
   guardarTareaConEnter(e: KeyboardEvent<HTMLElement>): void{
-    if(e.key == 'Enter'){
+    if(e.key === 'Enter'){
       this.guardarTarea();
     }
   }

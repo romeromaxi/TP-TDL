@@ -30,13 +30,13 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
     };
 
     handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        if(!this.props.unaTarea.estaCheckeado()){
-            this.props.unaTarea.checkeado();
-            this.setState({});
+        if(!this.props.unaTarea.estaHecha()){
+            this.props.unaTarea.checkear();
         } else{
-            this.props.unaTarea.uncheckeado();
-            this.setState({});
+            this.props.unaTarea.desCheckear();
         }
+
+        this.setState({});
     };
 
     render(){
@@ -44,7 +44,7 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
             <div className={this.props.unaTarea.getEstilo()}>
                 <Row>
                     <Col className="tarea-titulo">
-                        <input type="checkbox" checked={this.props.unaTarea.estaCheckeado()} onChange={this.handleChange}/>
+                        <input type="checkbox" checked={this.props.unaTarea.estaHecha()} onChange={this.handleChange}/>
                         {this.props.unaTarea.nombre}                          
                     </Col>
                     <Col>

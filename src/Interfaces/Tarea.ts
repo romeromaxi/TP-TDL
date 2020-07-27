@@ -25,11 +25,11 @@ class Tarea
         return this.estado.getEstilo();
     }
 
-    checkeado(): void {
+    checkear(): void {
         this.estado = this.estado.fueHecho();
     }
 
-    uncheckeado(): void {
+    desCheckear(): void {
         this.estado = this.estado.fueDeshecho();
     }
 
@@ -38,8 +38,16 @@ class Tarea
             this.estado = this.estado.seVencio();
     }
 
-    estaCheckeado(): boolean{
+    estaHecha(): boolean {
         return this.estado.estaHecho();
+    }
+
+    estaVencida(): boolean {
+        return this.estado.estaVencido();
+    }
+
+    estaVigente(): boolean {
+        return this.estado.estaVigente();
     }
 
 }

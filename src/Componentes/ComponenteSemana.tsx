@@ -3,7 +3,6 @@ import {Col, Row, ButtonToolbar} from 'reactstrap'
 import ComponenteDia from './ComponenteDia';
 
 import ITarea from '../Interfaces/Tarea';
-import UtilFecha from '../Util/UtilFechaHoy'
 import ModalAltaTarea from './ModalAltaTarea';
 import ButtonDropDownFiltroTareas from './ButtonDropDownFiltroTareas'
 
@@ -68,13 +67,19 @@ class ComponenteSemana extends React.Component<IProps, IState> {
             case TareaVisibilidadFiltro.Vigentes:
                 return this.state.listaTareas.filter(
                         x => x.dia === unDia &&
-                        !UtilFecha.esFechaPasada(x.dia, x.hora)
+                             x.estaVigente()
                     );
 
             case TareaVisibilidadFiltro.Vencidas:
                 return this.state.listaTareas.filter(
                         x => x.dia === unDia &&
-                        UtilFecha.esFechaPasada(x.dia, x.hora)
+                             x.estaVencida()
+                    );
+
+            case TareaVisibilidadFiltro.Realizadas:
+                return this.state.listaTareas.filter(
+                        x => x.dia === unDia &&
+                             x.estaHecha()
                     );
         
             default:
