@@ -106,13 +106,15 @@
 }
 
 .tarea-vencida{
-    background-color: red ;
-    border: 1px solid red ;
+    background-color: #ff9e9e ;
+    border-left: 2.5px solid red;
+    border-right: 2.5px solid red;
 }
 
 .tarea-hecha{
-    background-color: green ;
-    border: 1px solid green ;
+    background-color: #70fe70 ;
+    border-left: 2.5px solid green;
+    border-right: 2.5px solid green;
 }
 
 .tarea-titulo{
