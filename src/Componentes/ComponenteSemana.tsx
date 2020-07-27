@@ -1,5 +1,7 @@
 import React from 'react';
 import {Col, Row, ButtonToolbar} from 'reactstrap'
+import { FaCalendarAlt } from "react-icons/fa";
+
 import ComponenteDia from './ComponenteDia';
 
 import ITarea from '../Interfaces/Tarea';
@@ -102,7 +104,7 @@ class ComponenteSemana extends React.Component<IProps, IState> {
 
                 <Row className="div-ComponenteSemana-Header">
                     <Col className="titulo">
-                        Calendario Cuarentenil
+                        <FaCalendarAlt /> Calendario Cuarentenil  
                     </Col>
                     <Col className="div-ComponenteSemana-HeaderButtons">
                         <ButtonToolbar>

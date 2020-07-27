@@ -20,9 +20,13 @@
 .div-ComponenteSemana-Header > .titulo{
     color: black;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 400;
     line-height: 30px;
+}
+
+.div-ComponenteSemana-Header > .titulo > svg{
+    margin-bottom: 7px;
 }
 
 .div-ComponenteSemana-HeaderButtons > .btn-toolbar {
