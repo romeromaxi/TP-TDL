@@ -2,8 +2,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React from 'react';
-//import logo from './logo.svg';
-//import {Col, Row, Container} from 'reactstrap';
 
 import ComponenteSemana from './Componentes/ComponenteSemana';
 

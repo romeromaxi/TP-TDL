@@ -1,5 +1,6 @@
 import React from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { FaDotCircle } from "react-icons/fa";
 
 /* Enums */
 import TareaVisibilidadFiltro from '../Enums/TareaVisibilidadFiltro'
@@ -26,24 +27,29 @@ class ButtonDropDownFiltroTareas extends React.Component<IProps, IState> {
         this.filtrarTareasPorVigentes = this.filtrarTareasPorVigentes.bind(this);
         this.filtrarTareasPorVencidas = this.filtrarTareasPorVencidas.bind(this);
         this.filtrarTareasPorSinFiltro = this.filtrarTareasPorSinFiltro.bind(this);
+        this.filtrarTareasPorRealizadas = this.filtrarTareasPorRealizadas.bind(this);
     }
 
-    cambiarVisibilidad(){
+    cambiarVisibilidad(): void {
         this.setState({
             dropdownOpen: !this.state.dropdownOpen
         })
     }
 
-    filtrarTareasPorVigentes() {
+    filtrarTareasPorVigentes(): void {
         this.props.onFiltraTareas(TareaVisibilidadFiltro.Vigentes);
     }
 
-    filtrarTareasPorVencidas() {
+    filtrarTareasPorVencidas(): void {
         this.props.onFiltraTareas(TareaVisibilidadFiltro.Vencidas);
     }
 
-    filtrarTareasPorSinFiltro() {
+    filtrarTareasPorSinFiltro(): void {
         this.props.onFiltraTareas(TareaVisibilidadFiltro.SinFiltro);
+    }
+
+    filtrarTareasPorRealizadas(): void {
+        this.props.onFiltraTareas(TareaVisibilidadFiltro.Realizadas);
     }
 
     render() {
@@ -55,8 +61,12 @@ class ButtonDropDownFiltroTareas extends React.Component<IProps, IState> {
                     </DropdownToggle>
                     <DropdownMenu>
                         <DropdownItem onClick={this.filtrarTareasPorSinFiltro}>Todas</DropdownItem>
-                        <DropdownItem onClick={this.filtrarTareasPorVigentes}>Vigentes</DropdownItem>
-                        <DropdownItem onClick={this.filtrarTareasPorVencidas}>Vencidas</DropdownItem>
+                        <DropdownItem onClick={this.filtrarTareasPorVigentes}>
+                            <FaDotCircle color="blue" fontSize="11" /> Vigentes</DropdownItem>
+                        <DropdownItem onClick={this.filtrarTareasPorVencidas}>
+                            <FaDotCircle color="red" fontSize="11" /> Vencidas</DropdownItem>
+                        <DropdownItem onClick={this.filtrarTareasPorRealizadas}>
+                            <FaDotCircle color="green" fontSize="11" /> Realizadas</DropdownItem>
                     </DropdownMenu>
                 </ButtonDropdown>
             </div>

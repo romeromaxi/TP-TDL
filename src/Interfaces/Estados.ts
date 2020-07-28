@@ -1,46 +1,62 @@
 import IEstado from './IEstado';
 
 class EstadoVencido implements IEstado {
-    getEstilo(){
+    getEstilo(): string{
         return "tarea tarea-vencida";
     }
 
-    seVencio(){
+    seVencio(): IEstado {
         return this;
     }
 
-    fueHecho(){
-        return new EstadoHecho;
+    fueHecho(): IEstado {
+        return new EstadoHecho();
     }
 
-    fueDeshecho(){
-        return new EstadoVigente;
+    fueDeshecho(): IEstado {
+        return new EstadoVigente();
     }
 
-    estaHecho(){
+    estaHecho(): boolean {
+        return false;
+    }
+
+    estaVencido(): boolean {
+        return true;
+    }
+
+    estaVigente(): boolean {
         return false;
     }
 }
 
 class EstadoVigente implements IEstado {
-    getEstilo(){
+    getEstilo(): string {
         return "tarea tarea-vigente";
     }
 
-    seVencio(){
-        return new EstadoVencido;
+    seVencio(): IEstado {
+        return new EstadoVencido();
     }
 
-    fueHecho(){
-        return new EstadoHecho;
+    fueHecho(): IEstado {
+        return new EstadoHecho();
     }
 
-    fueDeshecho(){
-        return new EstadoVigente;
+    fueDeshecho(): IEstado {
+        return new EstadoVigente();
     }
 
-    estaHecho(){
+    estaHecho(): boolean {
         return false;
+    }
+
+    estaVencido(): boolean {
+        return false;
+    }
+
+    estaVigente(): boolean {
+        return true;
     }
 }
 
@@ -49,21 +65,30 @@ class EstadoHecho implements IEstado {
         return "tarea tarea-hecha";
     }
 
-    seVencio(){
+    seVencio(): IEstado {
         return this;
     }
 
-    fueHecho(){
-        return new EstadoHecho;
+    fueHecho(): IEstado {
+        return new EstadoHecho();
     }
 
-    fueDeshecho(){
-        return new EstadoVigente;
+    fueDeshecho(): IEstado {
+        return new EstadoVigente();
     }
 
-    estaHecho(){
+    estaHecho(): boolean {
         return true;
     }
+
+    estaVencido(): boolean {
+        return false;
+    }
+
+    estaVigente(): boolean {
+        return false;
+    }
+    
 }
 
 export {EstadoHecho, EstadoVencido, EstadoVigente}

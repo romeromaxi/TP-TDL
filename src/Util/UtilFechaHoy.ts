@@ -13,8 +13,8 @@ class UtilFechaHoy {
     }
 
     public obtenerDiaDeSemana() : number {
-        let aux =  this.obtenerFecha().getDay();
-        return (aux == 0) ? 7 : aux;
+        let numeroDiaDeHoy =  this.obtenerFecha().getDay();
+        return (numeroDiaDeHoy === 0) ? 7 : numeroDiaDeHoy;
     }
 
     private esDiaPasado(dia : string) : boolean {
@@ -29,7 +29,7 @@ class UtilFechaHoy {
         return hora < this.obtenerHora();
     }
 
-    private getDiaIndex(diaString: String){
+    private getDiaIndex(diaString: String): number{
         switch (diaString) {
             case 'Lunes':
                 return 1;
