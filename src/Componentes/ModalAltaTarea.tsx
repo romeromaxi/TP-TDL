@@ -73,7 +73,6 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
       unaTarea: actualizarTarea
     });
 
-    this.setState({});
   }
 
   cambiarDescripcionTarea(descripcion: string): void {
