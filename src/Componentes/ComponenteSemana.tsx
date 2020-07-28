@@ -7,6 +7,7 @@ import ComponenteDia from './ComponenteDia';
 import ITarea from '../Interfaces/Tarea';
 import ModalAltaTarea from './ModalAltaTarea';
 import ButtonDropDownFiltroTareas from './ButtonDropDownFiltroTareas'
+import _ from 'lodash'
 
 /* Enums */
 import TareaVisibilidadFiltro from '../Enums/TareaVisibilidadFiltro'
@@ -14,7 +15,7 @@ import TareaVisibilidadFiltro from '../Enums/TareaVisibilidadFiltro'
 interface IProps{ };
 
 interface IState{
-    listaTareas: Array<ITarea>;
+    listaTareas: ITarea[];
     tareaVisibilidad: TareaVisibilidadFiltro;
 };
 
@@ -35,24 +36,30 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         this.filtrarVisibilidadTareas = this.filtrarVisibilidadTareas.bind(this);
     }
 
-    actualizarIds(): void {
-        this.state.listaTareas.forEach((unaTarea, index) => {
-            unaTarea.id = index;
-        })
+    actualizarIds(lstTarea : ITarea[]): void {
+        _.forEach(lstTarea, (unaTarea : ITarea, index : number) => unaTarea.id = index );
+        // this.state.listaTareas.forEach((unaTarea, index) => {
+        //     unaTarea.id = index;
+        // })
     }
 
     borrarTarea(idTarea: number): void {
-        this.state.listaTareas.forEach((unaTarea, index) => {
+        let listaTarea = _.cloneDeep(this.state.listaTareas);
+        _.remove(listaTarea, unaTarea => unaTarea.id === idTarea);
 
-            if(unaTarea.id === idTarea)
-                this.state.listaTareas.splice(index, 1);
-        })
+        // this.state.listaTareas.forEach((unaTarea, index) => {
 
-        this.actualizarIds();
-        this.setState({});
+        //     if(unaTarea.id === idTarea)
+        //         this.state.listaTareas.splice(index, 1);
+        // })
+
+        this.actualizarIds(listaTarea);
+        this.setState({
+            listaTareas: listaTarea
+        });
     }
 
-    agregarNuevaTarea(unaTareaNueva: Array<ITarea>): void {
+    agregarNuevaTarea(unaTareaNueva: ITarea[]): void {
         unaTareaNueva.forEach((unaTarea, index) => {
             unaTarea.id = this.state.listaTareas.length + index;
         })

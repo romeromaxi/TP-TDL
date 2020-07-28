@@ -1,5 +1,6 @@
 import React, {KeyboardEvent} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Input, Col } from 'reactstrap';
+import _ from 'lodash'
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
@@ -9,7 +10,7 @@ const animatedComponents = makeAnimated();
 
 interface IProps{
   labelBoton: string;
-  onGuardarTarea: (unaTarea: Array<Tarea>) => void;
+  onGuardarTarea: (unaTarea: Tarea[]) => void;
 };
 
 interface IState{
@@ -34,7 +35,7 @@ type OptionType = {
   label: string;
 };
 
-type ValueType<OptionType> = Array<OptionType>;
+type ValueType<OptionType> = OptionType[];
 
 class ModalAltaTarea extends React.Component<IProps, IState> {
 
@@ -87,10 +88,8 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   cambiarDiasTarea(options? : ValueType<OptionType>): void {
     let listaNuevoDias : string[] = [];
 
-    options?.forEach(element => {
-      listaNuevoDias.push(element.value);
-    });   
-    
+    _.forEach(options, element => listaNuevoDias.push(element.value));
+
     this.setState({
       listaDeDias: listaNuevoDias
     });
@@ -114,7 +113,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   guardarTarea() {
     
     //Esto lo soluciona.
-    var listaNuevoDias: Array<Tarea> = [];
+    var listaNuevoDias: Tarea[] = [];
 
     this.state.listaDeDias.forEach(element => {
       var unaTarea = new Tarea();

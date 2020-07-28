@@ -9,12 +9,12 @@ import ComponenteTarea from './ComponenteTarea';
 interface IProps{
     id: number;
     dia: string;
-    listaTareas: Array<ITarea>;
+    listaTareas: ITarea[];
     onBorrarTarea: (idTarea: number) => void; 
 };
 
 interface IState {
-    listaTareas: Array<ITarea>;
+    listaTareas: ITarea[];
 };
 
 class ComponenteDia extends React.Component<IProps, IState> {
