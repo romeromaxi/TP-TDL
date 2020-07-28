@@ -66,13 +66,23 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   }
 
   cambiarNombreTarea(nombre: string): void {
-    this.state.unaTarea.nombre = nombre;
+    const actualizarTarea : Tarea = new Tarea(this.state.unaTarea);
+    actualizarTarea.nombre = nombre;
+    
+    this.setState({
+      unaTarea: actualizarTarea
+    });
+
     this.setState({});
   }
 
   cambiarDescripcionTarea(descripcion: string): void {
-    this.state.unaTarea.descripcion = descripcion;
-    this.setState({});
+    const actualizarTarea : Tarea = new Tarea(this.state.unaTarea);
+    actualizarTarea.descripcion = descripcion;
+    
+    this.setState({
+      unaTarea: actualizarTarea
+    });
   }
 
   cambiarDiasTarea(options? : ValueType<OptionType>): void {
@@ -88,8 +98,12 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   }
 
   cambiarHoraTarea(hora: string): void{
-    this.state.unaTarea.hora = hora;
-    this.setState({});
+    const actualizarTarea : Tarea = new Tarea(this.state.unaTarea);
+    actualizarTarea.hora = hora;
+
+    this.setState({
+      unaTarea: actualizarTarea
+    });
   }
 
   guardarTareaConEnter(e: KeyboardEvent<HTMLElement>): void{

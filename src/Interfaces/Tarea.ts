@@ -11,13 +11,13 @@ class Tarea
     hora: string
     estado: IEstado;
 
-    constructor(){
-        this.id = 0;
-        this.dia = "";
-        this.nombre = "";
-        this.descripcion = "";
-        this.hora = "";
-        this.estado = new EstadoVigente();
+    constructor(unaTarea? : Tarea){
+        this.id = unaTarea?.id || 0;
+        this.dia = unaTarea?.dia || "";
+        this.nombre = unaTarea?.nombre || "";
+        this.descripcion = unaTarea?.descripcion || "";
+        this.hora = unaTarea?.hora || "";
+        this.estado = unaTarea?.estado || new EstadoVigente();
     }
 
     getEstilo(): string {
