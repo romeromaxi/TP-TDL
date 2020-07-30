@@ -54,7 +54,7 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
                 <Row >
                     <Col></Col>
                     <Col className="tarea-hora">
-                        A las {this.props.unaTarea.hora}
+                        {this.props.unaTarea.getInfoTiempo()}
                     </Col>
                 </Row>
                 <Row>

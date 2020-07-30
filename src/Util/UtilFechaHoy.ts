@@ -17,7 +17,7 @@ class UtilFechaHoy {
         return (numeroDiaDeHoy === 0) ? 7 : numeroDiaDeHoy;
     }
 
-    private esDiaPasado(dia : string) : boolean {
+    public esDiaPasado(dia : string) : boolean {
         return this.getDiaIndex(dia) < this.obtenerDiaDeSemana();
     }
 

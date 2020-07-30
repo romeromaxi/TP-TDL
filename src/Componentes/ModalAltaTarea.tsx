@@ -4,6 +4,7 @@ import _ from 'lodash'
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
+import {TareaConHora, TareaDiaria} from '../Interfaces/Tareas';
 import Tarea from '../Interfaces/Tarea';
 
 const animatedComponents = makeAnimated();
@@ -47,7 +48,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
 
     this.state = {
         estaVisible: false,
-        unaTarea: new Tarea(),
+        unaTarea: new TareaConHora(),
         listaDeDias: []
     };
     
@@ -61,13 +62,13 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   cambiarVisibilidad(): void {
     this.setState({
       estaVisible: !this.state.estaVisible,
-      unaTarea: new Tarea(),
+      unaTarea: new TareaConHora(),
       listaDeDias: []
     })
   }
 
   cambiarNombreTarea(nombre: string): void {
-    const actualizarTarea : Tarea = new Tarea(this.state.unaTarea);
+    const actualizarTarea : Tarea = new TareaConHora(this.state.unaTarea);
     actualizarTarea.nombre = nombre;
     
     this.setState({
@@ -77,7 +78,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   }
 
   cambiarDescripcionTarea(descripcion: string): void {
-    const actualizarTarea : Tarea = new Tarea(this.state.unaTarea);
+    const actualizarTarea : Tarea = new TareaConHora(this.state.unaTarea);
     actualizarTarea.descripcion = descripcion;
     
     this.setState({
@@ -96,7 +97,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
   }
 
   cambiarHoraTarea(hora: string): void{
-    const actualizarTarea : Tarea = new Tarea(this.state.unaTarea);
+    const actualizarTarea : Tarea = new TareaConHora(this.state.unaTarea);
     actualizarTarea.hora = hora;
 
     this.setState({
@@ -116,11 +117,16 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
     var listaNuevoDias: Tarea[] = [];
 
     this.state.listaDeDias.forEach(element => {
-      var unaTarea = new Tarea();
+      var unaTarea;
+      if (this.state.unaTarea.hora === ''){
+        unaTarea = new TareaDiaria();
+      } else {
+        unaTarea = new TareaConHora();
+      }
       unaTarea.dia = element;
       unaTarea.nombre = this.state.unaTarea.nombre;
       unaTarea.descripcion = this.state.unaTarea.descripcion;
-      unaTarea.hora = this.state.unaTarea.hora;  
+      unaTarea.hora = this.state.unaTarea.hora; 
       listaNuevoDias.push(unaTarea);
     });
 
