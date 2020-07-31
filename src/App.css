@@ -25,6 +25,15 @@
     line-height: 30px;
 }
 
+.div-ComponenteSemana-Header > .horaLocal{
+    color: black;
+    font-weight: 400;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    float: center;
+}
+
 .div-ComponenteSemana-Header > .titulo > svg{
     margin-bottom: 7px;
 }

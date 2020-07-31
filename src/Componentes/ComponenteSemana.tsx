@@ -17,23 +17,33 @@ interface IProps{ };
 interface IState{
     listaTareas: ITarea[];
     tareaVisibilidad: TareaVisibilidadFiltro;
+    diaLocal: Date;
 };
 
 class ComponenteSemana extends React.Component<IProps, IState> {   
     
     nombreDias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+    intervalo: number;
     
     constructor(props: IProps){
         super(props);
          
         this.state = {
             tareaVisibilidad: TareaVisibilidadFiltro.SinFiltro,
-            listaTareas: []
+            listaTareas: [], diaLocal: new Date() 
         };
 
         this.borrarTarea = this.borrarTarea.bind(this);
         this.agregarNuevaTarea = this.agregarNuevaTarea.bind(this);
         this.filtrarVisibilidadTareas = this.filtrarVisibilidadTareas.bind(this);
+    }
+
+    componentDidMount() {
+        this.intervalo = window.setInterval(() => this.setState({ diaLocal: new Date() }), 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.intervalo);
     }
 
     actualizarIds(lstTarea : ITarea[]): void {
@@ -111,8 +121,11 @@ class ComponenteSemana extends React.Component<IProps, IState> {
 
                 <Row className="div-ComponenteSemana-Header">
                     <Col className="titulo">
-                        <FaCalendarAlt /> Calendario Cuarentenil  
+                        <FaCalendarAlt /> Calendario Cuarentenil     
                     </Col>
+                    <div className='horaLocal'>
+                        {this.state.diaLocal.toLocaleTimeString()}
+                    </div>
                     <Col className="div-ComponenteSemana-HeaderButtons">
                         <ButtonToolbar>
                             <ButtonDropDownFiltroTareas onFiltraTareas={this.filtrarVisibilidadTareas}></ButtonDropDownFiltroTareas>
