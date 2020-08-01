@@ -61,7 +61,7 @@ class EstadoVigente implements IEstado {
 }
 
 class EstadoHecho implements IEstado {
-    getEstilo(){
+    getEstilo() : string {
         return "tarea tarea-hecha";
     }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Row, Col, Button } from 'reactstrap';
 import ITarea from '../Interfaces/Tarea';
 import '../App.css';
@@ -39,7 +39,7 @@ class ComponenteTarea extends React.Component<IProps,IVisibilidad> {
         this.setState({});
     };
 
-    render(){
+    render() : ReactNode {
         return(
             <div className={this.props.unaTarea.getEstilo()}>
                 <Row>

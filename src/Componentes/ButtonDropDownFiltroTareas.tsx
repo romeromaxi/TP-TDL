@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { FaDotCircle } from "react-icons/fa";
 
@@ -52,7 +52,7 @@ class ButtonDropDownFiltroTareas extends React.Component<IProps, IState> {
         this.props.onFiltraTareas(TareaVisibilidadFiltro.Realizadas);
     }
 
-    render() {
+    render() : ReactNode {
         return(
             <div>
                 <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.cambiarVisibilidad}>

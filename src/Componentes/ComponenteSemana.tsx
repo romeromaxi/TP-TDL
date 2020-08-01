@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {Col, Row, ButtonToolbar} from 'reactstrap'
 import { FaCalendarAlt } from "react-icons/fa";
 
@@ -38,30 +38,21 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         this.filtrarVisibilidadTareas = this.filtrarVisibilidadTareas.bind(this);
     }
 
-    componentDidMount() {
+    componentDidMount() : void {
         this.intervalo = window.setInterval(() => this.setState({ diaLocal: new Date() }), 1000);
     }
 
-    componentWillUnmount() {
+    componentWillUnmount() : void {
         clearInterval(this.intervalo);
     }
 
     actualizarIds(lstTarea : ITarea[]): void {
         _.forEach(lstTarea, (unaTarea : ITarea, index : number) => unaTarea.id = index );
-        // this.state.listaTareas.forEach((unaTarea, index) => {
-        //     unaTarea.id = index;
-        // })
     }
 
     borrarTarea(idTarea: number): void {
         let listaTarea = _.cloneDeep(this.state.listaTareas);
         _.remove(listaTarea, unaTarea => unaTarea.id === idTarea);
-
-        // this.state.listaTareas.forEach((unaTarea, index) => {
-
-        //     if(unaTarea.id === idTarea)
-        //         this.state.listaTareas.splice(index, 1);
-        // })
 
         this.actualizarIds(listaTarea);
         this.setState({
@@ -112,9 +103,7 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         })
     }
 
-
-
-    render(){
+    render() : ReactNode{
         
         return(
             <div className="div-ComponenteSemana">

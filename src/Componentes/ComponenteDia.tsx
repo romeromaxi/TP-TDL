@@ -1,6 +1,6 @@
 import '../App.css';
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Row, Col } from 'reactstrap';
 
 import ITarea from '../Interfaces/Tarea';
@@ -30,7 +30,7 @@ class ComponenteDia extends React.Component<IProps, IState> {
         this.props.onBorrarTarea(idTarea);
     }
 
-    render(){      
+    render() : ReactNode {      
         let { listaTareas } = this.props;
         listaTareas.sort((a, b) => (a.hora > b.hora) ? 1 : -1);
 

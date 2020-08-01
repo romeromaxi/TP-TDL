@@ -1,4 +1,4 @@
-import React, {KeyboardEvent} from 'react';
+import React, {KeyboardEvent, ReactNode } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Input, Col } from 'reactstrap';
 import _ from 'lodash'
 import Select from 'react-select';
@@ -111,9 +111,8 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
     }
   }
 
-  guardarTarea() {
+  guardarTarea() : void {
     
-    //Esto lo soluciona.
     var listaNuevoDias: Tarea[] = [];
 
     this.state.listaDeDias.forEach(element => {
@@ -134,7 +133,7 @@ class ModalAltaTarea extends React.Component<IProps, IState> {
     this.cambiarVisibilidad();
   }
   
-  render(){
+  render() : ReactNode {
 
     return ( 
       <div>
