@@ -4,7 +4,7 @@ function miFuncion(inicializarVar: boolean){
         let unaColeccionDeNumeros: Array<number> = [10];
     }
 
-    console.log(unaColeccionDeNumeros);
+    console.log(unaColeccionDeNumeros.push(15));
 }
 
 miFuncion(true);
