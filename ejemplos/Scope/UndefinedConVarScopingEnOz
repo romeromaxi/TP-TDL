@@ -1,0 +1,14 @@
+local MiFuncion in
+   proc {MiFuncion InitVar}
+      if (InitVar == true) then
+	 local X in
+	    X = 10
+	 end
+      end
+
+      {Browse X}
+   end
+
+   {MiFuncion true}
+   {MiFuncion false}
+end
