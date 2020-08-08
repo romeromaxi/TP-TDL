@@ -4,7 +4,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 
 import ComponenteDia from './ComponenteDia';
 
-import ITarea from '../Interfaces/Tarea';
+import Tarea from '../Interfaces/Tarea';
 import ModalAltaTarea from './ModalAltaTarea';
 import ButtonDropDownFiltroTareas from './ButtonDropDownFiltroTareas'
 import _ from 'lodash'
@@ -15,7 +15,7 @@ import TareaVisibilidadFiltro from '../Enums/TareaVisibilidadFiltro'
 interface IProps{ };
 
 interface IState{
-    listaTareas: ITarea[];
+    listaTareas: Tarea[];
     tareaVisibilidad: TareaVisibilidadFiltro;
     diaLocal: Date;
 };
@@ -46,8 +46,8 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         clearInterval(this.intervalo);
     }
 
-    actualizarIds(lstTarea : ITarea[]): void {
-        _.forEach(lstTarea, (unaTarea : ITarea, index : number) => unaTarea.id = index );
+    actualizarIds(lstTarea : Tarea[]): void {
+        _.forEach(lstTarea, (unaTarea : Tarea, index : number) => unaTarea.id = index );
     }
 
     borrarTarea(idTarea: number): void {
@@ -60,7 +60,7 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         });
     }
 
-    agregarNuevaTarea(unaTareaNueva: ITarea[]): void {
+    agregarNuevaTarea(unaTareaNueva: Tarea[]): void {
         unaTareaNueva.forEach((unaTarea, index) => {
             unaTarea.id = this.state.listaTareas.length + index;
         })
@@ -71,7 +71,7 @@ class ComponenteSemana extends React.Component<IProps, IState> {
         });
     }
 
-    obtenerTareasPorDia(unDia: string): ITarea[] {
+    obtenerTareasPorDia(unDia: string): Tarea[] {
 
         switch (this.state.tareaVisibilidad) {
             case TareaVisibilidadFiltro.Vigentes:
